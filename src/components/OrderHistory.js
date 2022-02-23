@@ -52,60 +52,55 @@ const OrderHistory = () => {
                     <>
                       {item.products.map((product, index1) => {
                         return (
-                          <>
-                            <div
-                              className="card order-card mb-3"
-                              style={{ maxWidth: "740px" }}
-                              key={item.id}
-                            >
-                              <div className="row">
-                                <div className="col-md-12">
-                                  <img
-                                    src={product.image}
-                                    className="img-fluid rounded-start"
-                                    style={{ height: "100px", width: "150px" }}
-                                    alt="..."
-                                  />
-                                  <div className="card-body">
-                                    <h5 className="card-title">
-                                      {product.title}
-                                    </h5>
-                                    {product.description !== undefined &&
-                                    product.description.length >= 100
-                                      ? product.description.substring(0, 100)
-                                      : product.description}
-                                    <p className="card-text">
-                                      Rating :{" "}
-                                      <small className="text-muted">
-                                        {product.rating && product.rating.rate}
-                                      </small>
-                                      <br />
-                                      Reviews :{" "}
-                                      <small className="text-muted">
-                                        {product.rating && product.rating.count}
-                                      </small>
-                                      <h5 className="mb-0 font-weight-semibold">
-                                        {`Rs. ${product.price}`}
-                                      </h5>
-                                    </p>
+                          <div
+                            className="card order-card mb-3"
+                            style={{ maxWidth: "740px" }}
+                            key={item.id}
+                          >
+                            <div className="row">
+                              <div className="col-md-12">
+                                <img
+                                  src={product.image}
+                                  className="img-fluid rounded-start"
+                                  style={{ height: "100px", width: "150px" }}
+                                  alt="..."
+                                />
+                                <div className="card-body">
+                                  <h5 className="card-title">
+                                    {product.title}
+                                  </h5>
+                                  {product.description !== undefined &&
+                                  product.description.length >= 100
+                                    ? product.description.substring(0, 100)
+                                    : product.description}
+                                  <p className="card-text">
+                                    Rating :{" "}
+                                    <small className="text-muted">
+                                      {product.rating && product.rating.rate}
+                                    </small>
+                                    <br />
+                                    Reviews :{" "}
+                                    <small className="text-muted">
+                                      {product.rating && product.rating.count}
+                                    </small>
+                                  </p>
 
-                                    <div
-                                      style={{
-                                        display: "inline-flex",
-                                        marginLeft: "40px",
-                                      }}
-                                    >
-                                      <h3>{`${product.price} * ${
-                                        product.quantity
-                                      } = ${
-                                        product.price * product.quantity
-                                      }`}</h3>
-                                    </div>
+                                  <div
+                                    style={{
+                                      display: "inline-flex",
+                                      marginLeft: "40px",
+                                    }}
+                                  >
+                                    <h3>{`${product.price} * ${
+                                      product.quantity
+                                    } = ${
+                                      product.price * product.quantity
+                                    }`}</h3>
                                   </div>
                                 </div>
                               </div>
                             </div>
-                          </>
+                          </div>
                         );
                       })}
                     </>
