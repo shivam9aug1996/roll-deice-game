@@ -34,6 +34,7 @@ const taskReducer = (state = initialState, action) => {
       } else {
         arr1 = [{ ...obj, quantity: 1 }];
       }
+      localStorage.setItem("cartData", JSON.stringify(arr1));
       return {
         ...state,
         cartData: arr1,
@@ -63,7 +64,7 @@ const taskReducer = (state = initialState, action) => {
         }
       }
       let d = arr2.filter((item) => item.quantity > 0);
-
+      localStorage.setItem("cartData", JSON.stringify(d));
       return {
         ...state,
         cartData: d,
@@ -72,7 +73,16 @@ const taskReducer = (state = initialState, action) => {
     case "GET_CART_DATA":
       return {
         ...state,
-        cartData: state.cartData,
+        cartData: localStorage.getItem("cartData")
+          ? JSON.parse(localStorage.getItem("cartData"))
+          : [],
+      };
+    case "GET_ORDER_HISTORY":
+      return {
+        ...state,
+        orderHistory: localStorage.getItem("orderHistory")
+          ? JSON.parse(localStorage.getItem("orderHistory"))
+          : [],
       };
     case "PLACE_ORDER":
       let obj1 = {
@@ -81,6 +91,11 @@ const taskReducer = (state = initialState, action) => {
         orderId: action.payload.orderId,
         date: action.payload.date,
       };
+      localStorage.setItem(
+        "orderHistory",
+        JSON.stringify([...state.orderHistory, obj1])
+      );
+      localStorage.removeItem("cartData");
 
       return {
         ...state,

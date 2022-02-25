@@ -23,6 +23,12 @@ export const placeOrder = (item) => {
   };
 };
 
+export const getOrderHistory = () => {
+  return {
+    type: "GET_ORDER_HISTORY",
+  };
+};
+
 export const clearSuccessOrderStatus = () => {
   return {
     type: "CLEAR_SUCCESS_ORDER_STATUS",

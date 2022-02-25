@@ -3,11 +3,20 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { addToCart, placeOrder, removeFromCart } from "../redux/actions";
+import {
+  addToCart,
+  placeOrder,
+  removeFromCart,
+  getCartData,
+} from "../redux/actions";
 
 const Cart = () => {
   let cartData = useSelector((state) => state.taskReducer.cartData);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCartData());
+  }, []);
 
   let navigate = useNavigate();
   const totalMoney =

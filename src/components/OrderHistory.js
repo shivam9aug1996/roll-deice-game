@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import {
   addToCart,
   clearSuccessOrderStatus,
+  getCartData,
+  getOrderHistory,
   removeFromCart,
 } from "../redux/actions";
 import NotifyModal from "./NotifyModal";
@@ -15,6 +17,11 @@ const OrderHistory = () => {
     (state) => state.taskReducer.successfulOrder
   );
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getOrderHistory());
+    dispatch(getCartData());
+  }, []);
 
   useEffect(() => {
     if (isSuccessfulOrder) {
