@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { addToCart } from "../redux/actions";
 import Loader from "./Loader";
+import { products } from "../data/data";
+
 const AddRemoveCartCounter = lazy(() => import("./AddRemoveCartCounter"));
 
 const Product = () => {
@@ -10,15 +12,22 @@ const Product = () => {
   const [arr, setArr] = useState([]);
   let params = useParams();
   const getProduct = async () => {
-    const response = await fetch(
-      `https://fakestoreapi.com/products/${params.id}`
-    );
-    const data = await response.json();
+    const data = products.filter((item) => {
+      if (parseInt(item.id) === parseInt(params.id)) {
+        return item;
+      }
+    });
+    // const response = await fetch(
+    //   `https://fakestoreapi.com/products/${params.id}`
+    // );
+    // const data = await response.json();
     let arr = [];
-    arr.push(data);
-    setArr(arr);
-  };
 
+    //  arr=arr[...data]
+    setTimeout(() => {
+      setArr(data);
+    }, 300);
+  };
   useEffect(() => {
     let isMounted = true;
     if (isMounted) getProduct();

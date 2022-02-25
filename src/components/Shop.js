@@ -12,10 +12,10 @@ const Shop = () => {
 
   const [data, setData] = useState([]);
   const getData = async () => {
-    setData(products);
-    // setTimeout(() => {
-    //   setData(products);
-    // }, 0);
+    //setData(products);
+    setTimeout(() => {
+      setData(products);
+    }, 300);
     // const response = await fetch("https://fakestoreapi.com/products");
     // const data = await response.json();
     // setData(data);
