@@ -76,5 +76,13 @@ th {
 }
 
 .navbar-toggler:focus {
-  box-shadow: unset;
+  box-shadow: unset !important;
+}
+
+.navbar-toggler {
+  border: unset !important;
+}
+
+.collapsing {
+  transition: height 0.15s linear !important;
 }
