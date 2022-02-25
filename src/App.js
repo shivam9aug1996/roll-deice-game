@@ -18,7 +18,12 @@ const App = () => {
     <div>
       <Navbar />
       <Suspense
-        fallback={<div style={{ width: "100%", height: "800px" }}></div>}
+        fallback={
+          <div className="center-loader">
+            {" "}
+            <Loader />
+          </div>
+        }
       >
         <>
           <ScrollToTop />
