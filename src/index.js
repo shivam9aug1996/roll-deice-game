@@ -10,10 +10,10 @@ import $ from "jquery";
 import Popper from "popper.js";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { BrowserRouter } from "react-router-dom";
-import ScrollToTop from "./components/ScrollToTop";
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+      {/* <ScrollComponent /> */}
       <BrowserRouter>
         <App />
       </BrowserRouter>

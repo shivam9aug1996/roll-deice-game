@@ -1,9 +1,8 @@
 import React from "react";
-import Loader from "./Loader";
 
 const About = () => {
   return (
-    <div className="container" style={{ marginTop: "50px" }}>
+    <div className="container container-margin">
       <p>
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever

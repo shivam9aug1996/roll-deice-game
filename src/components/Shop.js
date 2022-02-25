@@ -1,21 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Outlet } from "react-router-dom";
-import { addToCart, removeFromCart } from "../redux/actions";
-import AddRemoveCartCounter from "./AddRemoveCartCounter";
+import { Link } from "react-router-dom";
+import { addToCart } from "../redux/actions";
+
 import Loader from "./Loader";
+import { products } from "../data/data";
+const AddRemoveCartCounter = lazy(() => import("./AddRemoveCartCounter"));
 
 const Shop = () => {
   const dispatch = useDispatch();
 
   const [data, setData] = useState([]);
   const getData = async () => {
-    const response = await fetch("https://fakestoreapi.com/products");
-    const data = await response.json();
-    setData(data);
+    setData(products);
+    // setTimeout(() => {
+    //   setData(products);
+    // }, 0);
+    // const response = await fetch("https://fakestoreapi.com/products");
+    // const data = await response.json();
+    // setData(data);
   };
   useEffect(() => {
-    getData();
+    let isMounted = true;
+    if (isMounted) getData();
+    return () => {
+      isMounted = false;
+      setData([]);
+    };
   }, []);
   let cartData = useSelector((state) => state.taskReducer.cartData);
 
@@ -27,7 +38,7 @@ const Shop = () => {
           <Loader />
         </div>
       ) : (
-        <div className="container">
+        <div className="container container-margin">
           <div className="row">
             <>
               {data.map((item, index) => {
@@ -35,7 +46,7 @@ const Shop = () => {
                   return data.id === item.id;
                 });
                 return (
-                  <div className="col-md-4 mt-2" key={item.id}>
+                  <div className="col-md-4" key={item.id}>
                     <div className="card">
                       <Link
                         className="text-default mb-2 product-title"
@@ -47,8 +58,7 @@ const Shop = () => {
                             <img
                               src={item.image}
                               className="card-img img-fluid"
-                              width="96"
-                              height="350"
+                              style={{ height: "200px" }}
                               alt=""
                             ></img>{" "}
                           </div>
@@ -82,7 +92,9 @@ const Shop = () => {
                           {item.rating.count} reviews
                         </div>{" "}
                         {newData.length > 0 ? (
-                          <AddRemoveCartCounter item={item} />
+                          <Suspense fallback={<div></div>}>
+                            <AddRemoveCartCounter item={item} />
+                          </Suspense>
                         ) : (
                           <button
                             type="button"

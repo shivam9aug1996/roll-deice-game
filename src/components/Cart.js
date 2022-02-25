@@ -29,13 +29,13 @@ const Cart = () => {
   };
 
   return (
-    <div className="container" style={{ marginTop: "50px" }}>
+    <div className="container container-margin">
       {cartData.length > 0 ? <h1>{`My Cart (${cartData.length})`}</h1> : ""}
       {cartData.map((item, index) => {
         return (
           <div
             className="card mb-3"
-            style={{ maxWidth: "740px" }}
+            style={{ maxWidth: "740px", padding: "20px" }}
             key={item.id}
           >
             <div className="row g-0">
