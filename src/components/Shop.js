@@ -32,11 +32,8 @@ const Shop = () => {
 
   return (
     <>
-      {data.length === 0 ? (
-        <div className="center-loader">
-          {" "}
-          <Loader />
-        </div>
+      {data.length !== 0 ? (
+        <Loader />
       ) : (
         <div className="container container-margin">
           <div className="row">

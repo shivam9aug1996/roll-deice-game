@@ -51,6 +51,7 @@ th {
   flex: auto;
   justify-content: center;
   text-align: center;
+  height: 100vh;
 }
 
 .order-card {

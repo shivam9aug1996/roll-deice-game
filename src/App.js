@@ -17,14 +17,7 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      <Suspense
-        fallback={
-          <div className="center-loader">
-            {" "}
-            <Loader />
-          </div>
-        }
-      >
+      <Suspense fallback={<Loader />}>
         <>
           <ScrollToTop />
           <Routes>
