@@ -35,7 +35,7 @@ th {
 
 .badge-cart {
   padding: unset !important;
-  color: black !important;
+  color: #8c8c8c !important;
 }
 
 .order-history {
@@ -67,5 +67,13 @@ th {
 }
 
 .container-margin {
-  margin-top: 90px;
+  margin-top: 40px;
+}
+
+.shop-cart-icon {
+  color: #8c8c8c;
+}
+
+.navbar-toggler:focus {
+  box-shadow: unset;
 }

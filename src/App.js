@@ -15,7 +15,7 @@ const ScrollToTop = lazy(() => import("./components/ScrollToTop"));
 
 const App = () => {
   return (
-    <>
+    <div>
       <Navbar />
       <Suspense
         fallback={<div style={{ width: "100%", height: "800px" }}></div>}
@@ -33,7 +33,7 @@ const App = () => {
         </>
       </Suspense>
       <Footer />
-    </>
+    </div>
   );
 };
 
