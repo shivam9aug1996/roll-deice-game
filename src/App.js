@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
+import Loader from "./components/Loader";
 import Navbar from "./components/Navbar";
 //const Footer = lazy(() => import("./components/Footer"));
 const Main = lazy(() => import("./components/Main"));
@@ -16,7 +17,9 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <Suspense fallback={<div></div>}>
+      <Suspense
+        fallback={<div style={{ width: "100%", height: "800px" }}></div>}
+      >
         <>
           <ScrollToTop />
           <Routes>
