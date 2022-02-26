@@ -1,7 +1,6 @@
 DEMO--->https://shop-kart-shivam.netlify.app
 
-![Shop Kart (2)](https://user-images.githubusercontent.com/52425336/155840041-cd9b4ef9-b029-42bc-818f-050cf5de3b4a.png)
-
+![Shop Kart (3)](https://user-images.githubusercontent.com/52425336/155840114-faa45dc8-482c-447b-a292-feec5dcb75bb.png)
 
 # Getting Started with Create React App
 
