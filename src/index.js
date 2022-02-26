@@ -1,7 +1,6 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import store from "./redux/store";
@@ -10,12 +9,14 @@ import $ from "jquery";
 import Popper from "popper.js";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { BrowserRouter } from "react-router-dom";
+const App = lazy(() => import("./App"));
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      {/* <ScrollComponent /> */}
       <BrowserRouter>
-        <App />
+        <Suspense fallback={<div></div>}>
+          <App />
+        </Suspense>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,
