@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <>
       <header
-        className="navbar navbar-expand-md navbar-dark bd-navbar"
+        className="navbar navbar-expand-md navbar-dark bd-navbar sticky-top"
         style={{ backgroundColor: "black" }}
       >
         <nav
