@@ -1,13 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import {
-  addToCart,
-  clearSuccessOrderStatus,
-  getCartData,
-  getOrderHistory,
-  removeFromCart,
-} from "../redux/actions";
+import { clearSuccessOrderStatus, getOrderHistory } from "../redux/actions";
 import NotifyModal from "./NotifyModal";
 
 const OrderHistory = () => {
@@ -20,7 +14,6 @@ const OrderHistory = () => {
 
   useEffect(() => {
     dispatch(getOrderHistory());
-    dispatch(getCartData());
   }, []);
 
   useEffect(() => {

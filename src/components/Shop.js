@@ -20,6 +20,7 @@ const Shop = () => {
     // const data = await response.json();
     // setData(data);
   };
+
   useEffect(() => {
     let isMounted = true;
     if (isMounted) getData();
