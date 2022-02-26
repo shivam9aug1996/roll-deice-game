@@ -5,5 +5,5 @@
   for = "/*"
   [headers.values]
   cache-control = '''
-  max-age=60,
+  max-age=10,
   must-revalidate'''
