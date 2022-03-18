@@ -27,7 +27,7 @@ const OrderHistory = () => {
     return () => {
       setNotify(false);
     };
-  }, [isSuccessfulOrder]);
+  }, []);
 
   return (
     <>
