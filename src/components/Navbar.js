@@ -10,7 +10,7 @@ const Navbar = () => {
   let cartData = useSelector((state) => state.taskReducer.cartData);
   useEffect(() => {
     dispatch(getCartData());
-  }, [dispatch]);
+  }, []);
   return (
     <>
       <header

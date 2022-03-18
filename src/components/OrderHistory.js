@@ -14,7 +14,7 @@ const OrderHistory = () => {
 
   useEffect(() => {
     dispatch(getOrderHistory());
-  }, [dispatch]);
+  }, []);
 
   useEffect(() => {
     if (isSuccessfulOrder) {
