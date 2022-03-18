@@ -76,9 +76,9 @@ const Cart = () => {
                     +
                   </button>
                   <div style={{ display: "inline-flex", marginLeft: "40px" }}>
-                    <h4>{`${item.price} * ${item.quantity} = ${
+                    <h4>{`${item.price} * ${item.quantity} = ${(
                       item.price * item.quantity
-                    }`}</h4>
+                    ).toFixed(2)}`}</h4>
                   </div>
                 </div>
               </div>

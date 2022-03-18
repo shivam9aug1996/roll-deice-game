@@ -45,7 +45,6 @@ class ScrollComponent extends Component {
     if (this.state.prevY > y) {
       const lastPhoto = this.state.photos[this.state.photos.length - 1];
       const curPage = lastPhoto.albumId;
-      console.log(lastPhoto.albumId);
       this.getPhotos(curPage);
       this.setState({ page: curPage });
     }

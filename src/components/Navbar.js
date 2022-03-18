@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import { IoCartOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { getCartData } from "../redux/actions";
+//import SearchBox from "./SearchBox";
 
 const Navbar = () => {
   const dispatch = useDispatch();
   let cartData = useSelector((state) => state.taskReducer.cartData);
   useEffect(() => {
     dispatch(getCartData());
-  }, []);
+  }, [dispatch]);
   return (
     <>
       <header
@@ -72,6 +73,9 @@ const Navbar = () => {
 
             <ul className="navbar-nav flex-row flex-wrap ms-md-auto"></ul>
           </div>
+
+          {/* <SearchBox /> */}
+
           <Link to="/cart" style={{ textDecoration: "none" }}>
             <div className="cart-badge">
               <IoCartOutline className="d-flex shop-cart-icon" />

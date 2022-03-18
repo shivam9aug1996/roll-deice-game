@@ -6,7 +6,6 @@ const AddRemoveCartCounter = lazy(() => import("./AddRemoveCartCounter"));
 
 const ShopProducts = ({ data, cartData }) => {
   const dispatch = useDispatch();
-
   return (
     <>
       {data.map((item, index) => {

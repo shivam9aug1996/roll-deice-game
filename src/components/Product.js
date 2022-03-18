@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect, useState } from "react";
+import React, { createRef, lazy, Suspense, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { addToCart } from "../redux/actions";
@@ -11,6 +11,7 @@ const Product = () => {
   const dispatch = useDispatch();
   const [arr, setArr] = useState([]);
   let params = useParams();
+
   const getProduct = async () => {
     const data = products.filter((item) => {
       if (parseInt(item.id) === parseInt(params.id)) {
@@ -26,6 +27,8 @@ const Product = () => {
     //  arr=arr[...data]
     setTimeout(() => {
       setArr(data);
+
+      //document.getElementById("search-box-id").value = data[0].title;
     }, 300);
   };
   useEffect(() => {
@@ -35,7 +38,7 @@ const Product = () => {
       isMounted = false;
       setArr([]);
     };
-  }, []);
+  }, [params.id]);
   let cartData = useSelector((state) => state.taskReducer.cartData);
   return (
     <>
